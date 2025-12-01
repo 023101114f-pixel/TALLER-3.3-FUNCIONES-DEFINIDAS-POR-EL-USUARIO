@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Infografía — UDFs </title>
+  <style>
+    :root{
+      --bg:#0a0f1c;
+      --card:#111827;
+      --accent:#4f46e5;
+      --accent2:#06b6d4;
+      --text:#e2e8f0;
+      --muted:#94a3b8;
+    }
+    *{font-family:Inter,Segoe UI,Roboto,Arial;smooth-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at top,var(--accent2),var(--bg)),#0a0f1c;color:var(--text)}
+    .wrap{max-width:1150px;margin:auto;padding:20px}
+    header{display:flex;gap:18px;align-items:center;justify-content:center;margin-bottom:20px}
+    .logo{width:80px;height:80px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:16px;display:flex;justify-content:center;align-items:center;font-size:26px;color:white;font-weight:700;filter:drop-shadow(0 4px 14px rgba(0,0,0,.4))}
+    .title{text-align:center}
+    h1{margin:0;font-size:26px;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.4)}
+    p.lead{margin:6px 0 16px;color:var(--muted)}
+
+    /* Panels */
+    .panel{background:rgba(255,255,255,0.05);padding:18px;border-radius:14px;backdrop-filter:blur(4px);margin-bottom:22px;transition:transform .2s, box-shadow .2s}
+    .panel:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+
+    h2{margin-top:0;color:var(--accent2);font-size:20px}
+
+    /* Cards */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+    .card{background:var(--card);padding:16px;border-radius:12px;transition:transform .2s, box-shadow .2s;cursor:pointer;border:1px solid rgba(255,255,255,.06)}
+    .card:hover{transform:scale(1.03);box-shadow:0 8px 24px rgba(0,0,0,.45)}
+    .card h3{margin:0;color:#fff;font-size:17px}
+    .card p{color:var(--muted);margin:6px 0 0}
+
+    .badge{background:var(--accent2);padding:4px 8px;border-radius:8px;font-size:12px;color:#012b33;margin-right:6px;font-weight:600}
+
+    footer{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
+
+    /* Animación de brillo */
+    @keyframes glow{
+      0%{box-shadow:0 0 4px var(--accent2)}
+      50%{box-shadow:0 0 14px var(--accent2)}
+      100%{box-shadow:0 0 4px var(--accent2)}
+    }
+    .glow{animation:glow 3s infinite ease-in-out}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="logo glow">UDF</div>
+      <div class="title">
+        <h1>10 Funciones Definidas por el Usuario</h1>
+        <p class="lead">Bases: <strong>Northwind</strong> · <strong>Pubs</strong> — SQL Server</p>
+      </div>
+    </header>
+
+    <!-- INTRO -->
+    <section class="panel">
+      <h2>Introducción</h2>
+      <p>Este proyecto contiene 10 funciones creadas en SQL Server (escalares y de tabla), diseñadas para resolver problemas reales como análisis de ventas, validación de datos, control editorial y reportes personalizados. Las funciones se aplican sobre Northwind y Pubs, integrando lógica reutilizable y optimizada.</p>
+    </section>
+
+    <!-- NORTHWIND -->
+    <section class="panel">
+      <h2>Funciones — Northwind (7)</h2>
+      <div class="grid">
+
+        <div class="card">
+          <span class="badge">Tabla Inline</span>
+          <h3>1) PedidosPorClienteAnio</h3>
+          <p>Retorna pedidos por cliente y año. Útil para auditorías y reportes históricos.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge">Escalar</span>
+          <h3>2) TotalVentasEmpleadoPeriodo</h3>
+          <p>Calcula el total vendido por un empleado en un rango de fechas.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge">Tabla Inline</span>
+          <h3>3) ProductosSinStock</h3>
+          <p>Muestra los productos agotados o en nivel crítico.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge">Escalar</span>
+          <h3>4) ClienteTienePedidos</h3>
+          <p>Verifica si un cliente tiene registros de pedidos.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge">Multisentencia</span>
+          <h3>5) TopProductosPorCategoria</h3>
+          <p>Lista los productos más vendidos por categoría.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge">Tabla Inline</span>
+          <h3>6) ProductosVendidosEnRango</h3>
+          <p>Muestra productos vendidos entre dos fechas con importes totales.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge">Escalar</span>
+          <h3>7) CantidadPedidosPais</h3>
+          <p>Cuenta cuántos pedidos fueron enviados a un país específico.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PUBS -->
+    <section class="panel">
+      <h2>Funciones — Pubs (3)</h2>
+      <div class="grid">
+
+        <div class="card">
+          <span class="badge">Tabla Inline</span>
+          <h3>8) AutoresSinLibros</h3>
+          <p>Identifica autores que no tienen títulos asignados.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge">Tabla Inline</span>
+          <h3>9) TitulosNoVendidos</h3>
+          <p>Detecta títulos que nunca registraron ventas.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge">Escalar</span>
+          <h3>10) PrecioMedioPublisher</h3>
+          <p>Calcula el precio promedio de los libros publicados por una editorial.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="panel">
+      <h2>Conclusión</h2>
+      <p>Estas UDFs facilitan la organización y análisis de datos, permitiendo automatizar cálculos, validar relaciones y generar reportes en distintos escenarios. El trabajo reforzó el uso de SQL Server para crear soluciones modulares, reutilizables y fáciles de integrar.</p>
+    </section>
+
+    <footer>
+      Trabajo — UDFs SQL Server · 2025 · Karin Quispe
+    </footer>
+
+  </div>
+</body>
+</html>
